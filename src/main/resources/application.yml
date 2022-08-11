@@ -1,0 +1,17 @@
+spring:
+  kafka:
+    streams:
+      application-id: test-kafka-stream
+      bootstrap-servers: 192.168.31.161:9092,192.168.31.162:9092,192.168.31.163:9092
+      properties:
+        default:
+          key:
+            serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+          value:
+            serde: org.springframework.kafka.support.serializer.JsonSerde
+          timestamp:
+            extractor: org.apache.kafka.streams.processor.WallclockTimestampExtractor
+        spring:
+          json:
+            trusted:
+              packages: com.engrz.lab.*
